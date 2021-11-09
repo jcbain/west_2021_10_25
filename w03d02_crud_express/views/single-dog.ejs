@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Single Dog</title>
+</head>
+<body>
+  <h1>A single dog</h1>
+  <div>
+    <h2>color: <%= dog.color %></h2>
+    <h2>is furry: <%= dog.isFurry %></h2>
+  </div>
+  <a href="/dogs">Go back to all dogs</a>
+
+  <h2>Edit this dog</h2>
+  <form method="POST" action="/dogs/<%= dogId %>">
+    <label>change the color</label>
+    <input name="color"/>
+    <br />
+    <button type="submit">change color</button>
+  </form>
+  
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>all the dogs</title>
+</head>
+<body>
+  <h1>All dogs!!!</h1>
+  <h2>add a dog</h2>
+  <form method="POST" action="/dogs">
+    <label>dogs's color</label>
+    <input name="color"/>
+    <br />
+    <label>is the dog furry?</label>
+    <input name="isFurry"/>
+    <br />
+    <button type="submit">Create new dog</button>
+
+  </form>
+
+  <% for(const dogId in dogs) { %>
+    <div style="border: 2px solid palevioletred; padding: 20px;">
+      <p>dogs color: <%= dogs[dogId].color %></p>
+      <p>dogs is furry: <%= dogs[dogId].isFurry %></p>
+      <a href="/dogs/<%= dogId %>">see details</a>
+      <form method="post" action="/dogs/<%= dogId %>/delete">
+        <button type="submit">Delete this dog</button>
+      </form>
+    </div>
+  <% } %>
+  
+</body>
+</html>
