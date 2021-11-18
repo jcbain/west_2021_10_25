@@ -1,0 +1,74 @@
+// $main-color: burlywood;
+// $secondary-color: papayawhip;
+// $default-font-size: 18px;
+// $border-width: 3px;
+// $border-style: dotted;
+// $border-color: rebeccapurple;
+// $border: $border-width $border-style $border-color;
+
+@import "_variables";
+
+@mixin cool-mixin {
+  color: aquamarine;
+  border-radius: 3rem;
+}
+
+@mixin make-rectangular($n) {
+  height: $n;
+  width: 2 * $n;
+}
+
+p {
+  @include cool-mixin();
+  @include make-rectangular(10px);
+}
+
+.small {
+  @include make-rectangular(20px);
+}
+.medium {
+  @include make-rectangular(20vw);
+}
+.large {
+  @include make-rectangular(50vw);
+}
+
+.celebration {
+  color: pink;
+  border: 4px dashed purple;
+}
+
+div {
+  font-size: 2em;
+  color: blue;
+  @extend .celebration;
+}
+
+header {
+  background-color: $main-color;
+  color: $secondary-color;
+  font-size: $default-font-size;
+}
+
+footer {
+  background-color: $main-color;
+  border: $border;
+}
+
+section {
+  border: $border;
+  &.alert {
+    color: red;
+  }
+
+  p {
+    &.cheese {
+      color: yellow;
+    }
+    background-color: $secondary-color;
+    width: 2rem;
+    li {
+      color: green;
+    }
+  }
+}
